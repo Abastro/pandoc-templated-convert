@@ -1,0 +1,44 @@
+cabal-version:      3.0
+name:               pandoc-templated-convert
+version:            0.1.0.0
+-- synopsis:
+description:        Conversion through pandoc, including some templating extension.
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Abastro
+maintainer:         abab9579@gmail.com
+category:           Text
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall
+
+common dependencies
+  build-depends:
+    base,
+    containers,
+    text,
+    mtl,
+    filepath,
+    directory,
+    process,
+    temporary,
+    SHA,
+    optparse-applicative,
+    aeson,
+    doclayout,
+    doctemplates,
+    pandoc ^>=3.2.1,
+    pandoc-types,
+
+library
+    import:           warnings, dependencies
+    exposed-modules:
+        Templating
+        Conversion
+    default-extensions:
+        OverloadedStrings
+        LambdaCase
+    hs-source-dirs:   src
+    default-language: GHC2021
